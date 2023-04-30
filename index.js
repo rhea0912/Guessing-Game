@@ -4,6 +4,7 @@ let hiddenNumber = Math.floor(Math.random() * 100);
 const btnGuess = document.querySelector("#btn-guess");
 const result =  document.querySelector("#result");
 const guessInputNumber = document.querySelector("#guess-input-number");
+const audio = document.querySelector("#myAudio");
 
 // console.log('hiddenNumber: ' + hiddenNumber);
 let lives = 5;
@@ -69,6 +70,7 @@ btnGuess.addEventListener('click', function(e){
        btnGuess.innerHTML = "TRY AGAIN";
        btnGuess.style.backgroundColor = "red";
        isGameOver = true;
+       audio.play(); 
     }
 });
 
