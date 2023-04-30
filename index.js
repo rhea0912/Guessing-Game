@@ -4,9 +4,11 @@ let hiddenNumber = Math.floor(Math.random() * 100);
 const btnGuess = document.querySelector("#btn-guess");
 const result =  document.querySelector("#result");
 const guessInputNumber = document.querySelector("#guess-input-number");
-const audio = document.querySelector("#myAudio");
+const loseAudio = document.querySelector("#lose-audio");
+const winAudio = document.querySelector("#win-audio");
 
-// console.log('hiddenNumber: ' + hiddenNumber);
+
+console.log('hiddenNumber: ' + hiddenNumber);
 let lives = 5;
 let isGameOver = false;
 
@@ -48,7 +50,9 @@ btnGuess.addEventListener('click', function(e){
     const guessNumber = parseInt(guessInputNumber.value);
     
     if(hiddenNumber == guessNumber){
+       
         result.innerHTML = "You win! Great Job";
+        winAudio.play();
         btnGuess.innerHTML = "PLAY AGAIN";
         btnGuess.style.backgroundColor = "green";
         isGameOver = true;
@@ -70,7 +74,7 @@ btnGuess.addEventListener('click', function(e){
        btnGuess.innerHTML = "TRY AGAIN";
        btnGuess.style.backgroundColor = "red";
        isGameOver = true;
-       audio.play(); 
+       loseAudio.play(); 
     }
 });
 
