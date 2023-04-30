@@ -6,6 +6,7 @@ const result =  document.querySelector("#result");
 const guessInputNumber = document.querySelector("#guess-input-number");
 const loseAudio = document.querySelector("#lose-audio");
 const winAudio = document.querySelector("#win-audio");
+const toinksAudio = document.querySelector("#toinks-audio");
 
 
 console.log('hiddenNumber: ' + hiddenNumber);
@@ -60,11 +61,13 @@ btnGuess.addEventListener('click', function(e){
     else if(hiddenNumber < guessNumber){
         result.innerHTML = "Too High!";
         lives -= 1;
+        toinksAudio.play();
 
     }
     else {
         result.innerHTML = "Too Low!";
         lives -=1;
+        toinksAudio.play();
     }
 
     console.log("Current " + lives);
