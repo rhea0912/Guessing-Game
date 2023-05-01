@@ -14,7 +14,7 @@ const gameRes = document.querySelector("#game-res");
 console.log('hiddenNumber: ' + hiddenNumber);
 let lives = 5;
 let isGameOver = false;
-
+let range = 8;
 
 function generateHeart()
 {
@@ -63,14 +63,24 @@ btnGuess.addEventListener('click', function(e){
         gameRes.innerHTML = "Win";
         gameRes.style.color = "green";
     }
-    else if(hiddenNumber < guessNumber){
-        result.innerHTML = "Too High!";
+    else if(hiddenNumber < guessNumber ){
+        if(guessNumber <= hiddenNumber + range){
+            result.innerHTML = "Make it lower"
+        }
+        else{
+            result.innerHTML = "Too High!";
+        }
         lives -= 1;
         vibrateAudio.play();
-
     }
     else {
-        result.innerHTML = "Too Low!";
+        if(guessNumber >= hiddenNumber - range){
+            result.innerHTML = "Make it higher"
+        }
+        else{
+            result.innerHTML = "Too Low!";
+
+        }
         lives -=1;
         vibrateAudio.play();
     }
