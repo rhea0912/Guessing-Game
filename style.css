@@ -67,3 +67,15 @@ h2{
     font-weight: bold;
     font-size: 30px;
 }
+.footer{
+    background-color: #ffd3bb;
+    display:flex;
+    justify-content: center;
+    margin-top: 50px;
+    font-size:25px;
+}
+.footer > p:first-child{
+    color:#ff5c00;
+    padding-right: 100px;
+}
+

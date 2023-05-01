@@ -7,11 +7,14 @@ const guessInputNumber = document.querySelector("#guess-input-number");
 const loseAudio = document.querySelector("#lose-audio");
 const winAudio = document.querySelector("#win-audio");
 const vibrateAudio = document.querySelector("#vibrate-audio");
+const gameRes = document.querySelector("#game-res");
+
 
 
 console.log('hiddenNumber: ' + hiddenNumber);
 let lives = 5;
 let isGameOver = false;
+
 
 function generateHeart()
 {
@@ -57,6 +60,8 @@ btnGuess.addEventListener('click', function(e){
         btnGuess.innerHTML = "PLAY AGAIN";
         btnGuess.style.backgroundColor = "green";
         isGameOver = true;
+        gameRes.innerHTML = "Win";
+        gameRes.style.color = "green";
     }
     else if(hiddenNumber < guessNumber){
         result.innerHTML = "Too High!";
@@ -78,6 +83,8 @@ btnGuess.addEventListener('click', function(e){
        btnGuess.style.backgroundColor = "red";
        isGameOver = true;
        loseAudio.play(); 
+       gameRes.innerHTML = "Lose";
+       gameRes.style.color = "red";
     }
 });
 
